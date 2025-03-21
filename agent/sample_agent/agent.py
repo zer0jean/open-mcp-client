@@ -4,7 +4,7 @@ It defines the workflow graph, state, tools, nodes and edges.
 """
 
 from typing_extensions import Literal, TypedDict, Dict, List, Any, Union, Optional
-from langchain_openai import ChatOpenAI
+from langchain_openai import ChatGoogleGenerativeAI
 from langchain_core.runnables import RunnableConfig
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
@@ -65,7 +65,7 @@ async def chat_node(state: AgentState, config: RunnableConfig) -> Command[Litera
         mcp_tools = mcp_client.get_tools()
         
         # Create the react agent
-        model = ChatOpenAI(model="gpt-4o")
+        model = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
         react_agent = create_react_agent(model, mcp_tools)
         
         # Prepare messages for the react agent
