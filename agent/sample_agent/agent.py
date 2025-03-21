@@ -4,7 +4,7 @@ It defines the workflow graph, state, tools, nodes and edges.
 """
 
 from typing_extensions import Literal, TypedDict, Dict, List, Any, Union, Optional
-from langchain_openai import ChatGoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.runnables import RunnableConfig
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
